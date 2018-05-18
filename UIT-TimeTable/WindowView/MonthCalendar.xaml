@@ -1,0 +1,92 @@
+﻿<Window x:Class="UIT_TimeTable.WindowView.MonthCalendar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIT_TimeTable.WindowView"
+        mc:Ignorable="d"
+        Title="Month Calendar" Height="600" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="Day_Cell" TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="DEADLINE TRONG THÁNG" 
+                   FontSize="23" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="Blue"
+                   FontWeight="Bold"/>
+        <Grid Grid.Row="1" VerticalAlignment="Center" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox Text="Thứ 2" Grid.Column="0" Style="{StaticResource Day_Cell }"/>
+            <TextBox Text="Thứ 3" Grid.Column="1" Style="{StaticResource Day_Cell}"/>
+            <TextBox Text="Thứ 4" Grid.Column="2" Style="{StaticResource Day_Cell}"/>
+            <TextBox Text="Thứ 5" Grid.Column="3" Style="{StaticResource Day_Cell}"/>
+            <TextBox Text="Thứ 6" Grid.Column="4" Style="{StaticResource Day_Cell}"/>
+            <TextBox Text="Thứ 7" Grid.Column="5" Style="{StaticResource Day_Cell}"/>
+            <TextBox Text="Chủ nhật" Grid.Column="6" Style="{StaticResource Day_Cell}"/>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Name="PopupNotice" Click="Popup_Click" Content="Click me"/>
+            <Popup Margin="10,10,0,13" Name="Popup1" HorizontalAlignment="Left"   
+                VerticalAlignment="Top" Width="194" Height="200" IsOpen="False" 
+                Placement = "Absolute" HorizontalOffset="600" 
+                >
+                <TextBlock Name="McTextBlock"   
+             Background="LightBlue"  >  
+        This is popup text
+                </TextBlock>
+            </Popup>
+            
+            <Grid x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
+                <StackPanel>
+                    <Button Content="Show Popup (using Offset)" Click="ShowPopupOffsetClicked"/>
+                </StackPanel>
+                <Popup VerticalOffset="10" HorizontalOffset="200" x:Name="StandardPopup"  Placement="Bottom">
+                    <Border 
+                BorderThickness="2" Width="200" Height="200">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Simple Popup" FontSize="24.667" HorizontalAlignment="Center"/>
+                            <Button Content="Close" Click="ClosePopupClicked" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </Popup>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
