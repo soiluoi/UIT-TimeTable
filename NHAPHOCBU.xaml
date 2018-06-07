@@ -1,0 +1,34 @@
+﻿<Window x:Class="UIT_TimeTable.NHAPHOCBU"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIT_TimeTable"
+        mc:Ignorable="d"
+        Title="NHAPHOCBU" Height="450" Width="800">
+    <Grid>
+        <TextBlock FontSize="30">
+            nhập lịch học bù
+        </TextBlock>
+        <TextBox Canvas.Top="50" Canvas.Left="20" Margin="10,41,127,271" TextChanged="TextBox_TextChanged_1">
+        </TextBox>
+        <TextBlock TextAlignment="Left"
+                       Padding="5"
+                       Text="nhập lịch nghỉ" FontSize="30" Margin="10,153,532,0" Height="46" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.039"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+
+        </TextBlock>
+        <TextBox Canvas.Top="50" Canvas.Left="20" Margin="10,200,127,128" TextChanged="TextBox_TextChanged"/>
+        <Button Margin="320,319,340,63" Click="Button_Click">OK</Button>
+        
+
+
+    </Grid>
+</Window>
