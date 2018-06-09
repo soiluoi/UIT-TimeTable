@@ -54,8 +54,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\CourseSchedule.cs" />
+    <Compile Include="login.xaml.cs" />
+    <Compile Include="NHAPHOCBU.xaml.cs" />
     <Compile Include="Notice\PopupNotice.xaml.cs">
       <DependentUpon>PopupNotice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowView\AddCourses.xaml.cs">
+      <DependentUpon>AddCourses.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowView\GroupBox.xaml.cs">
       <DependentUpon>GroupBox.xaml</DependentUpon>
@@ -63,9 +69,16 @@
     <Compile Include="WindowView\MonthCalendar.xaml.cs">
       <DependentUpon>MonthCalendar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowView\AddLinkCrawler.xaml.cs">
+      <DependentUpon>AddLinkCrawler.xaml</DependentUpon>
+    </Compile>
     <Page Include="Class\CourseDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -82,7 +95,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NHAPHOCBU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Notice\PopupNotice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowView\AddCourses.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowView\MonthCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowView\AddLinkCrawler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,5 +147,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="image\x-button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

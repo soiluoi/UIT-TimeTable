@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIT_TimeTable"
         mc:Ignorable="d"
-        Title="Time Table" Height="600" Width="938" MinHeight="600" MinWidth="800"
+        Title="Time Table" Height="600" Width="938" 
         ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True"
         MouseLeftButtonDown="Window_Move"
+        WindowStartupLocation="CenterScreen"
         >
     <Window.Background>
         <SolidColorBrush Opacity="0.5" Color="White" />
@@ -18,8 +19,10 @@
         <Style x:Key="S_Cell" TargetType="Label">
             <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Opacity" Value="0.8"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="10"/>
         </Style>
@@ -33,6 +36,7 @@
 
         </Style>
     </Window.Resources>
+
     <Grid  Margin="10">
         <!-- &#x0a; -->
         <!--Grid Khung-->
@@ -43,69 +47,48 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <!--botton-->
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="29*"/>
             <!--Tile -->
-            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="63*" />
             <!--TKB-->
-            <RowDefinition Height="0.6*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="488*"/>
+
         </Grid.RowDefinitions>
         <!--Window btn-->
+        <WrapPanel >
+            <Button Click="X_click"  >
+                <Image Source="image\x-button.png"/>
 
-        <Button Click="X_click" 
-                    
-                    Grid.Column="1"
-                    Margin="631,0,31,0"
-                    Height="25"
-                    Width="25"
-                    >
-            <Image Source="C:\Users\Soiluoi\Desktop\x-button.png"/>
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Red"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
 
-
-
-
-
-        <TextBlock Grid.Row="1"
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Content="Show" Click="btn_ShowCrawler" />
+        </WrapPanel>
+        <!-- Tile-->
+        <Label Grid.Row="1"
             Grid.ColumnSpan="2" 
-            Text="THỜI KHOÁ BIỂU HỌC KỲ 2 NĂM 2017 - 2018 &#x0a; MSSV: " 
-            TextAlignment="Center"
+            Name="lb_Tile"
+            Content="THỜI KHOÁ BIỂU HỌC KỲ 2 NĂM 2017 - 2018 &#x0a;MSSV: " 
+            HorizontalContentAlignment="Center"
             FontFamily="sans-serif,Arial,Helvetica;"
             FontWeight="Bold"
             FontSize="20"
             Margin="5" />
         <!--Khung ngoai tren-->
 
-        <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="138"/>
-                <ColumnDefinition Width="138"/>
-                <ColumnDefinition Width="138"/>
-                <ColumnDefinition Width="138"/>
-                <ColumnDefinition Width="138"/>
-                <ColumnDefinition Width="138"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Thứ/Tiết" Style="{StaticResource B_Cell}" />
-            <Label Grid.Column="1" Content="Thứ 2" Style="{StaticResource B_Cell}" />
-            <Label Grid.Column="2" Content="Thứ 3" Style="{StaticResource B_Cell}" />
-            <Label Grid.Column="3" Content="Thứ 4" Style="{StaticResource B_Cell}" />
-            <Label Grid.Column="4" Content="Thứ 5" Style="{StaticResource B_Cell}"/>
-            <Label Grid.Column="5" Content="Thứ 6" Style="{StaticResource B_Cell}" />
-            <Label Grid.Column="6" Content="Thứ 7" Style="{StaticResource B_Cell}" />
-        </Grid>
+        
         <!--Khung ngoai ben-->
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="2">
             <Grid.RowDefinitions>
+                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -117,29 +100,35 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Tiết 1 &#x0a; (7:30 - 8:15)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="1" Content="Tiết 2 &#x0a; (8:15 - 9:00)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="2" Content="Tiết 3 &#x0a; (9:00 - 9:45)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="3" Content="Tiết 4 &#x0a; (10:00 - 10:45)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="4" Content="Tiết 5 &#x0a; (10:45 - 11:30)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="5" Content="Tiết 6 &#x0a; (13:00 - 13:45)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="6" Content="Tiết 7 &#x0a; (13:45 - 14:30)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="7" Content="Tiết 8 &#x0a; (14:30-15:15)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="8" Content="Tiết 9 &#x0a; (15:30-16:15)" Style="{StaticResource S_Cell}" ></Label>
-            <Label Grid.Row="9" Content="Tiết 10 &#x0a; (16:15-17:00)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Column="0" Content="Thứ/Tiết" Style="{StaticResource B_Cell}" />
+            <Label Grid.Row="1" Content="Tiết 1 &#x0a; (7:30 - 8:15)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="2" Content="Tiết 2 &#x0a; (8:15 - 9:00)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="3" Content="Tiết 3 &#x0a; (9:00 - 9:45)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="4" Content="Tiết 4 &#x0a; (10:00 - 10:45)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="5" Content="Tiết 5 &#x0a; (10:45 - 11:30)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="6" Content="Tiết 6 &#x0a; (13:00 - 13:45)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="7" Content="Tiết 7 &#x0a; (13:45 - 14:30)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="8" Content="Tiết 8 &#x0a; (14:30-15:15)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="9" Content="Tiết 9 &#x0a; (15:30-16:15)" Style="{StaticResource S_Cell}" ></Label>
+            <Label Grid.Row="10" Content="Tiết 10 &#x0a; (16:15-17:00)" Style="{StaticResource S_Cell}" ></Label>
 
         </Grid>
         <!--Lich hoc-->
-        <Grid Name="Container" Grid.Column="1" Grid.Row="3">
+
+
+
+
+        <Grid Name="Container" Grid.Column="1" Grid.Row="2" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="138"/>
+                    <ColumnDefinition Width="138"/>
+                    <ColumnDefinition Width="138"/>
+                    <ColumnDefinition Width="138"/>
+                    <ColumnDefinition Width="138"/>
+                    <ColumnDefinition Width="138"/>
+             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition/>
                 <RowDefinition/>
@@ -151,6 +140,16 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Content="Thứ 2" Style="{StaticResource B_Cell}" />
+                <Label Grid.Column="1" Content="Thứ 3" Style="{StaticResource B_Cell}" />
+                <Label Grid.Column="2" Content="Thứ 4" Style="{StaticResource B_Cell}" />
+                <Label Grid.Column="3" Content="Thứ 5" Style="{StaticResource B_Cell}"/>
+                <Label Grid.Column="4" Content="Thứ 6" Style="{StaticResource B_Cell}" />
+                <Label Grid.Column="5" Content="Thứ 7" Style="{StaticResource B_Cell}" />
+            
+           
+            
         </Grid>
 
     </Grid>

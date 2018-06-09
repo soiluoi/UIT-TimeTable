@@ -22,10 +22,11 @@ namespace UIT_TimeTable.Class
         public CourseDisplay()
         {
             InitializeComponent();
-            
+
         }
-        public CourseDisplay(CourseSchedule _CourseSchedule, int Day, int StartClass , int Class)
+        public CourseDisplay(CourseSchedule _CourseSchedule, int day, int startL, int numL)
         {
+            this.Background = Brushes.White;
             InitializeComponent();
             double stdH = this.Height;
             this.CourseName.Text = _CourseSchedule.Name;
@@ -34,11 +35,11 @@ namespace UIT_TimeTable.Class
             this.Room.Text = _CourseSchedule.Room;
             this.EndDate.Text = _CourseSchedule.EndD;
             this.StartDate.Text = _CourseSchedule.StartD;
-            this.Height = stdH*Class;
-            Grid.SetRow(this, StartClass-1);
-            Grid.SetColumn(this, Day-2);
-            Grid.SetRowSpan(this, Class);
-            //this.Height = { Binding ActualWidth, ElementName = Tb}
+            this.Height = stdH * numL;
+           // float t = Grid.GetColumn(this).Equals.Width
+            Grid.SetRow(this, startL );
+            Grid.SetColumn(this, day - 2);
+            Grid.SetRowSpan(this, numL);
         }
     }
 }
