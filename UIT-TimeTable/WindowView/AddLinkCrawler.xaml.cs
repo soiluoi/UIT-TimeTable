@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Net;
+using System.IO;
 namespace UIT_TimeTable.WindowView
 {
    
@@ -30,17 +31,37 @@ namespace UIT_TimeTable.WindowView
         public int GetCounter() {
             return counter;
         }
-        private void tb_getfocus(object sender, RoutedEventArgs e)
+        private void tb_gotfocus(object sender, RoutedEventArgs e)
         {
             if (tb_GetLink != null)
             {
                 tb_GetLink.Text=""; 
             }
         }
-       
+        protected void Page_Load(string url)
+        {
+            //text1.Text = GetWebSiteContents("https://daa.uit.edu.vn/sinhvien/thoikhoabieu");
+        }
+
+        protected string GetWebSiteContents(string url)
+        {
+            WebRequest req = WebRequest.Create(url);
+            // Get the stream from the returned web response
+            StreamReader sr = new StreamReader(req.GetResponse().GetResponseStream());
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            string strLine;
+            // Read the stream a line at a time and place each one into the stringbuilder
+            while ((strLine = sr.ReadLine()) != null)
+            {
+                // Ignore blank lines
+                if (strLine.Length > 0) sb.Append(strLine);
+            }
+            sr.Close();
+            return sb.ToString();
+        }
         private void btn_GetLink(object sender, RoutedEventArgs e)
         {
-            
+            Page_Load(tb_GetLink.Text);
             this.Close();
 
         }

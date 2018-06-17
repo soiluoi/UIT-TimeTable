@@ -23,6 +23,13 @@ namespace UIT_TimeTable.WindowView
         {
             InitializeComponent();
         }
+        private void tb_gotfocus(object sender, RoutedEventArgs e)
+        {   
+            if (tb_CourseID != null)
+            {
+                tb_CourseID.Text = "";
+            }
+        }
         private void btn_OK(object sender, RoutedEventArgs e)
         {
             if (tb_CourseID.Text != "")
@@ -32,7 +39,6 @@ namespace UIT_TimeTable.WindowView
                 rd.WriteLine(tb_CourseID.Text);
                 rd.Close();
             }
-
             this.Close();
         }
     }

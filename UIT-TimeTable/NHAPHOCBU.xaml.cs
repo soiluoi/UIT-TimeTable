@@ -14,14 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 
-namespace UIT_TimeTable
+namespace UIT_TimeTable.WindowView
 {
     /// <summary>
     /// Interaction logic for NHAPHOCBU.xaml
     /// </summary>
     public partial class NHAPHOCBU : Window
     {
-        public NHAPHOCBU()
+        public NHAPHOCBU()  
         {
             InitializeComponent();
         }

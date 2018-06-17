@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UIT_TimeTable.WindowView"
         ResizeMode="NoResize"
-        
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Add your website" Height="80" Width="500"
         >
@@ -24,7 +24,7 @@
                  Grid.Row="1" Text="Your link here"
                  Grid.ColumnSpan="2" 
                  Focusable="True"
-                 GotFocus="tb_getfocus"
+                 GotFocus="tb_gotfocus"
                  Margin="10,5"/>
         <Button Grid.Column="1" 
                 Grid.Row="1" 

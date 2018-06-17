@@ -33,7 +33,10 @@
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
-
+        </Style>
+        <Style x:Key="btn_Style" TargetType="Button">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Margin" Value="5,0"/>
         </Style>
     </Window.Resources>
 
@@ -55,10 +58,9 @@
 
         </Grid.RowDefinitions>
         <!--Window btn-->
-        <WrapPanel >
+        <WrapPanel Grid.ColumnSpan="2">
             <Button Click="X_click"  >
                 <Image Source="image\x-button.png"/>
-
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
 
@@ -70,7 +72,13 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Content="Show" Click="btn_ShowCrawler" />
+            <Button Content="Show" 
+                    Click="btn_ShowCrawler" 
+                    Style="{StaticResource btn_Style}" />
+            <Button Content="AC" 
+                    ToolTip="Thêm môn học" 
+                    Click="btn_AC"
+                    Style="{StaticResource btn_Style}" />
         </WrapPanel>
         <!-- Tile-->
         <Label Grid.Row="1"
@@ -114,9 +122,6 @@
 
         </Grid>
         <!--Lich hoc-->
-
-
-
 
         <Grid Name="Container" Grid.Column="1" Grid.Row="2" >
             <Grid.ColumnDefinitions>
